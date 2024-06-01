@@ -1,28 +1,50 @@
 <!doctype html>
-<html lang="en" ng-app='CountMsg'>
+<html lang="en" ng-app='CountWord'>
   <head>
     <title>Lunch Checker</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles/bootstrap.min.css">
     <style>
       .message { font-size: 1.3em; font-weight: bold; }
+      #input_text{
+        margin-right: 0px;
+        position: block;
+        width: 70%;
+      }
+      .conditions_app{
+        width: 30%;
+        border-style: solid;
+        border-width: 1px;
+        text-align: center;
+        margin-top: 1%;
+      }
+      p{
+        margin-top: 5%;
+      }
     </style>
   </head>
 <body>
    <div class="container">
      <h1>Lunch Checker</h1>
-
-         <div class="form-group" ng-controller='CountMsgController'>
-/*
-             <input id="lunch-menu" type="text"
-             placeholder="list comma separated dishes you usually have for lunch"
-             class="form-control">
+     <div ng-controller="CountStringController">
+         <div class="form-group" id="input_text">
+             <input id="lunch-menu" 
+                    type="text"
+                    placeholder="list comma separated dishes you usually have for lunch"
+                    class="form-control"
+                    ng-model="dishes">
+        <div class="conditions_app">
+           <p>
+            This: , , , will not be considered as an empty element
+           </p>
+        </div>
          </div>
          <div class="form-group">
-             <button class="btn btn-default">Check If Too Much</button>
+             <button ng-click="changeMsg()" class="btn btn-default">Check If Too Much</button>
          </div>
          <div class="form-group message">
            <!-- Your message can go here. -->
+           {{msg}}
          </div>
    </div>
    <script type="text/javascript" src="angular.min.js"></script>
